@@ -9,9 +9,9 @@
 //template <typename... T>
 //String combineString(T... args);
 
-String combineStringFast(const std::vector<String>& inArray);
+String combineStringFast(Array<String> inArray);
 
-String combineString(const std::vector<String>& inArray);
+String combineString(Array<String> inArray);
 
 String repeatString(String str, int times);
 

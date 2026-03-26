@@ -28,12 +28,15 @@ String combineStringFast(const std::vector<String>& inArray) {
 	return String(buf, len);
 }
 
-String combineString(const std::vector<String>& inArray) {
+String combineString(Array<String> inArray) {
 	int len = 0;
 	#ifdef HX_SMART_STRINGS
 	bool isWChar = false;
 	#endif
-	for (const auto& strI : inArray) {
+	for(size_t i = 0; i < inArray.GetPtr()->size(); i++){
+
+		auto strI = inArray[i];
+
 		if (strI.raw_ptr())
 		{
 			len += strI.length;
@@ -52,7 +55,8 @@ String combineString(const std::vector<String>& inArray) {
 	{
 		char16_t *buf = String::allocChar16Ptr(len);
 
-		for (const auto& strI : inArray) {
+		for(size_t i = 0; i < inArray.GetPtr()->size(); i++){
+			auto strI = inArray[i];
 			if (!strI.raw_ptr())
 			{
 				memcpy(buf+pos,u"null",8);
@@ -82,7 +86,8 @@ String combineString(const std::vector<String>& inArray) {
 	{
 		char *buf = hx::NewString(len);
 
-		for (const auto& strI : inArray) {
+		for(size_t i = 0; i < inArray.GetPtr()->size(); i++){
+			auto strI = inArray[i];
 			if (!strI.raw_ptr())
 			{
 				memcpy(buf+pos,"null",4);

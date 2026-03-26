@@ -7,9 +7,9 @@ package hxbytevm.utils;
 @:unreflective
 #if cpp extern #end class FastUtils {
 	#if cpp
-	@:native('combineStringFast') public static function  combineStringFast(inArray:cpp.StdVector<String>):String;
+	@:native('combineStringFast') public static function  combineStringFast(inArray:Array<String>):String;
 
-	@:native('combineString') public static function  combineString(inArray:cpp.StdVector<String>):String;
+	@:native('combineString') public static function  combineString(inArray:Array<String>):String;
 
 	@:native('repeatString') public static function repeatString(str:String, times:Int):String;
 	@:native('parse_int_throw') public static function parseIntLimit(str:String):Int;

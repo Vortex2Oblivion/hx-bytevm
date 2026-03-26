@@ -1,3 +1,2 @@
 --macro keep('IntIterator')
 --macro hxbytevm.utils.macros.OptimizerMacro.init()
---library cpphelpers

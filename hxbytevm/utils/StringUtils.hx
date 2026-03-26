@@ -58,15 +58,7 @@ class StringUtils {
 
 	@:pure public static function getTitle(title:String, ?dashsLen:Int = 46) {
 		var l = FastUtils.repeatString("-", Std.int((dashsLen - title.length - 2)/2));
-		#if cpp
-		var vec = new cpp.StdVector<String>(5);
-		for(i in [l, " ", title, " ", l]){
-			vec.pushBack(i);
-		}
-		return FastUtils.combineString(vec);
-		#else
 		return FastUtils.combineString([l, " ", title, " ", l]);
-		#end
 		//l + ' $title ' + l;
 	}
 
